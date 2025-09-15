@@ -1,0 +1,64 @@
+profile:
+  firstname: William
+  lastname: The Great
+  role: King of this Land
+  locationname: Capital, Magical Kingdom
+  locationmap: "https://www.openstreetmap.org/"
+  github: www.github.com
+  linkedin: www.linkedin.com
+  email: thegreat@magicalkingdom.org
+  pdftitle: Behold!
+
+summary:
+  Fair with nobles and peasants, I have been King of this magical
+  land for far too long and it's time I become an Emperor.
+
+experience:
+  header: Professional Experience
+  content:
+    - position: King
+      years: 1069--To Date
+      highlights:
+        - Kept peace both at home and with the Northeners.
+        - Increased tax collection by more than 12/%.
+        - Avoided major plague of 1077.
+    - position: Prince of the Magical Kingdom and Heir to the Throne
+      years: 1049--1069
+      highlights:
+        - Won every political confrontation.
+        - Became a proficient horse rider.
+        - Efficient in battle killing enemies and proving that I deserve this.
+        - As a team player, I married to keep our South border peaceful.
+
+skills:
+  header: Professional Skills
+  content:
+    - subject: "Athletic:"
+      desc: Horse Riding, Just Expert, Sword Master.
+    - subject: "Politic:"
+      desc: Negotiator, Good at Lying, Resiliant to Assesination Attempts.
+
+education:
+  header: Education
+  content:
+    - title: Enlightened
+      institution: Royal Academy
+      notes: My Tutor (rest in peace) was the great philosopher Silverius
+      years: 1050-1055
+
+training:
+  header: Training and Development
+  content:
+    - title: Exchange year at the Southland court.
+      notes: Expend a year learning politics and met the Queen.
+      date: 1066
+
+voluntary:
+  header: Voluntary Work
+  content:
+    - subject: Organisation of the Pentagonal Table
+      desc: Someone needs to bring those pesky kings together to
+            friendly discuss matters without so much bloodshed.
+
+setup:
+  language: english

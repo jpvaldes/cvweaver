@@ -1,0 +1,25 @@
+[project]
+name = "cvweaver"
+version = "0.1.0"
+description = "Output a CV in different formats from one data source."
+readme = "README.md"
+authors = [
+    { name = "Jose Pedro Valdes Herrera" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.2.1",
+    "jinja2>=3.1.6",
+    "ruamel-yaml>=0.18.15",
+]
+
+[project.scripts]
+cweaver = "app.cvweaver:main"
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+module-name = "app"

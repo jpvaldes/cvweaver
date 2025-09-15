@@ -1,0 +1,145 @@
+\documentclass[
+    10pt,
+    a4paper,
+    headings=big,
+    DIV=18, % Or use areaset for finer custom tuning of margins/ratio
+]{scrartcl}
+
+\pagestyle{empty}
+
+% INPUT
+((* if defined setup and setup.babel is not none *))
+\usepackage[(((setup.babel)))]{babel}
+((* else *))
+\usepackage[english]{babel}
+((* endif *))
+\usepackage{enumitem}
+
+% STYLE
+\usepackage[svgnames]{xcolor}
+
+% FONTS
+\usepackage[defaultsans]{lato}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{fontawesome7}
+\usepackage[unicode]{hyperref}
+
+\newcommand{\firstname}{(((profile.firstname)))}
+\newcommand{\lastname}{(((profile.lastname)))}
+\newcommand{\pdftitle}{(((profile.pdftitle)))}
+\newcommand{\role}{(((profile.role)))}
+\newcommand{\locationname}{(((profile.locationname)))}
+\newcommand{\locationmap}{(((profile.locationmap)))}
+\newcommand{\location}{\href{\locationmap}{\locationname}}
+\newcommand{\github}{\href{https://(((profile.github)))}{(((profile.github)))}}
+\newcommand{\linkedin}{\href{https://(((profile.linkedin)))}{(((profile.linkedin)))}}
+\newcommand{\email}{\href{mailto:(((profile.email)))}{(((profile.email)))}}
+\hypersetup{
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=DarkSlateGrey,
+    breaklinks,
+    colorlinks,
+    bookmarks,
+    pdfauthor = {\firstname~\lastname},
+    pdftitle = {\firstname~\lastname -- \pdftitle},
+    pdfsubject = {CV},
+    pdfkeywords = {\firstname{}~\lastname{}, curriculum vit\ae{}, CV, resum\'{e}, Lebenslauf},
+} 
+
+\setcounter{secnumdepth}{0} % remove the numbers from sections
+\setlength{\parindent}{0pt} % remove indentation
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.52\linewidth}
+    %\noindent
+    \begin{tabular}{@{}l@{}}
+        \huge{\firstname~\lastname} \\
+        \multicolumn{1}{c}{\rule{20mm}{.8pt}} \\
+        \multicolumn{1}{c}{\role} \\
+    \end{tabular}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \begin{tabular}{@{}l@{\hspace{4mm}}l@{}}
+        {\faSquareEnvelope} &  \email \\
+        {\faSquareLinkedin} & \linkedin \\
+        {\faSquareGithub} & \github \\
+        {\faMapLocationDot} & \location \\
+    \end{tabular}
+\end{minipage}
+\vspace{0.5cm}
+\setlength{\parskip}{0.8ex}
+
+((( summary )))
+
+((* if experience is defined *))
+\section{((( experience.header )))}
+  ((* for entry in experience.content *))
+  \subsection{(((entry.position))) (\,(((entry.years)))\,)}
+    \begin{itemize}[label=\faCaretRight,left=0pt]
+    ((* for highlight in entry.highlights *))
+        \item ((( highlight )))
+    ((* endfor *))
+    \end{itemize}
+  ((* endfor *))
+((* endif *))
+
+((* if skills is defined *))
+\section{((( skills.header )))}
+  \begin{description}
+  ((* for entry in skills.content *))
+    \item[((( entry.subject )))] ((( entry.desc )))
+  ((* endfor *))
+  \end{description}
+((* endif *))
+
+((* if education is defined *))
+\section{((( education.header )))}
+  \begin{description}
+  ((* for entry in education.content *))
+    \item[((( entry.title )))]{
+        ((*- if entry.institution is not none *))
+        at the ((( entry.institution )))
+        ((*- endif -*))
+        ((*- if entry.notes is not none -*))
+        . ((( entry.notes )))
+        ((*- endif -*))
+        ((*- if entry.years is not none -*))
+        , ((( entry.years ))).
+        ((*- else -*))
+        .
+        ((*- endif *))
+    }
+  ((* endfor *))
+  \end{description}
+((* endif *))
+
+((* if training is defined *))
+\section{((( training.header )))}
+  \begin{description}
+  ((* for entry in training.content -*))
+    \item[((( entry.title ))).]{
+        ((*- if entry.notes is not none -*))
+        ((( entry.notes )))
+        ((*- endif -*))
+        ((*- if entry.date is not none -*))
+        , ((( entry.date ))).
+        ((*- endif *))
+    }
+  ((* endfor *))
+  \end{description}
+((* endif *))
+
+((* if voluntary is defined *))
+\section{((( voluntary.header )))}
+  \begin{description}
+  ((* for entry in voluntary.content *))
+    \item[((( entry.subject ))).] ((( entry.desc )))
+  ((* endfor *))
+  \end{description}
+((* endif *))
+
+\end{document}
