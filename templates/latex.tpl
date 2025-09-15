@@ -8,11 +8,7 @@
 \pagestyle{empty}
 
 % INPUT
-((* if defined setup and setup.babel is not none *))
-\usepackage[(((setup.babel)))]{babel}
-((* else *))
-\usepackage[english]{babel}
-((* endif *))
+\usepackage[british]{babel}
 \usepackage{enumitem}
 
 % STYLE
