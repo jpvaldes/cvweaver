@@ -62,3 +62,4 @@ voluntary:
 
 setup:
   language: english
+  babel: british
