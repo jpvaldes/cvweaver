@@ -8,7 +8,7 @@
 \pagestyle{empty}
 
 % INPUT
-((* if defined setup and setup.babel is not none *))
+((* if setup is defined and ((( setup.babel ))) is defined *))
 \usepackage[(((setup.babel)))]{babel}
 ((* else *))
 \usepackage[english]{babel}
